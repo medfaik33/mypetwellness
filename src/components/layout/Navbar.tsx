@@ -43,8 +43,8 @@ export function Navbar() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="hidden sm:block">
+          <div className="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+            <div className="hidden md:block">
               <LanguageSwitcher />
             </div>
             <ThemeToggle />
@@ -56,9 +56,9 @@ export function Navbar() {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <XMarkIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+                <XMarkIcon className="h-5 w-5" />
               ) : (
-                <Bars3Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Bars3Icon className="h-5 w-5" />
               )}
             </button>
           </div>
@@ -67,20 +67,24 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              {/* Mobile Language Switcher */}
-              <div className="px-4 py-2">
+            <div className="space-y-3">
+              {/* Mobile Search */}
+              <div className="px-4">
                 <LanguageSwitcher />
+              </div>
+              
+              {/* Navigation Links */}
+              <div className="space-y-1">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

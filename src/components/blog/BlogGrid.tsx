@@ -154,15 +154,15 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
         <section className="py-12 sm:py-16 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
-        <div className="mb-8 sm:mb-12">
+        <div className="mb-6 sm:mb-8 lg:mb-12">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white">
               {category && category !== 'all' 
                 ? `${categories.find(cat => cat.slug === category)?.name || category.charAt(0).toUpperCase() + category.slice(1)}`
                 : 'Pet Blog'
               }
             </h1>
-            <span className="px-3 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full self-start">
+            <span className="px-2 sm:px-3 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium rounded-full self-start">
               {filteredPosts.length} articles
             </span>
           </div>
@@ -208,16 +208,16 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {paginatedPosts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gray-100 dark:bg-gray-800 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="group bg-gray-100 dark:bg-gray-800 rounded-lg sm:rounded-xl lg:rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
-              <div className="relative h-48 sm:h-64 overflow-hidden">
+              <div className="relative h-40 sm:h-48 lg:h-64 overflow-hidden">
                 <Image
                   src={post.coverImage}
                   alt={post.title}
@@ -237,24 +237,24 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
                 </div>
               </div>
               
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors line-clamp-2">
+              <div className="p-3 sm:p-4 lg:p-6">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors line-clamp-2">
                   <Link href={`/${locale}/blog/${post.slug}`}>
                     {post.title}
                   </Link>
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 line-clamp-3 leading-relaxed text-sm">
+                <p className="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 lg:mb-6 line-clamp-3 leading-relaxed text-xs sm:text-sm">
                   {post.excerpt}
                 </p>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 text-xs text-gray-500 dark:text-gray-400">
                   <div className="flex items-center space-x-1">
-                    <ClockIcon className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <ClockIcon className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                     <span>{post.readingTime} min read</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <CalendarIcon className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <CalendarIcon className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                     <span>{formatDate(post.publishedAt)}</span>
                   </div>
                 </div>
@@ -265,7 +265,7 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
 
         {/* Load More Button */}
         {filteredPosts.length > postsPerPage && (
-          <div className="text-center mt-8 sm:mt-12">
+          <div className="text-center mt-6 sm:mt-8 lg:mt-12">
             <Link
               href={`/${locale}/blog?${new URLSearchParams({
                 ...(category && { category }),
@@ -273,10 +273,10 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
                 ...(search && { search }),
                 page: (currentPage + 1).toString()
               }).toString()}`}
-              className="inline-flex items-center space-x-2 sm:space-x-3 bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 text-sm sm:text-base"
+              className="inline-flex items-center space-x-2 sm:space-x-3 bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 text-xs sm:text-sm lg:text-base"
             >
               <span>Load More Articles</span>
-              <ArrowRightIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ArrowRightIcon className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5" />
             </Link>
           </div>
         )}

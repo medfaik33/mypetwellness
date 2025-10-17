@@ -27,13 +27,13 @@ export function FeaturedArticles() {
                   Featured Articles
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
                 Pet Wellness Exams
                 <span className="text-gray-600 dark:text-gray-300">
                   {" "}& Care Tips
                 </span>
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
                 Discover expert insights on pet wellness exams, preventive care, and practical tips from our community of veterinary professionals and passionate pet owners.
               </p>
             </div>
@@ -172,7 +172,7 @@ export function FeaturedArticles() {
             )}
 
         {/* View All Button */}
-        <div className="text-center">
+        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
           <Link
             href={`/${locale}/blog`}
             className="inline-flex items-center space-x-2 sm:space-x-3 bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 text-sm sm:text-base"
