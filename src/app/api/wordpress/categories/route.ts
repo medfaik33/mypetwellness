@@ -4,7 +4,7 @@ import { wordpressAPI } from '@/lib/wordpress';
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const perPage = parseInt(searchParams.get('per_page') || '6');
+    const perPage = parseInt(searchParams.get('per_page') || '3');
     const includeUncategorized = searchParams.get('include_uncategorized') === 'true';
 
     // Fetch categories

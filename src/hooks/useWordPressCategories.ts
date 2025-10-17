@@ -64,7 +64,7 @@ export function useWordPressCategories() {
             try {
               const posts = await wordpressAPI.getPosts({
                 categories: [category.id],
-                per_page: 6, // Get 6 posts per category
+                per_page: 3, // Get 3 posts per category
                 orderby: 'date',
                 order: 'desc'
               });

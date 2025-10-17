@@ -9,6 +9,7 @@ import { formatDate } from '@/lib/utils';
 
 interface RelatedArticlesProps {
   currentPostId: string;
+  locale: string;
 }
 
 interface WordPressPost {
@@ -27,7 +28,7 @@ interface WordPressPost {
   category?: string;
 }
 
-export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
+export function RelatedArticles({ currentPostId, locale }: RelatedArticlesProps) {
   const [relatedArticles, setRelatedArticles] = useState<WordPressPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -115,7 +116,7 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <Link href={`/blog/${article.slug}`}>
+            <Link href={`/${locale}/blog/${article.slug}`}>
               <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -176,7 +177,7 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
       </div>
 
       <div className="text-center mt-8">
-        <Link href="/blog">
+        <Link href={`/${locale}/blog`}>
           <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-200">
             View All Articles
           </button>

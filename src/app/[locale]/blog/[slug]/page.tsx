@@ -189,7 +189,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = await getBlogPost(slug);
 
   const articleData = {
@@ -214,7 +214,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-3 md:p-4 mb-4">
                 <BlogPostContent post={post} />
               </div>
-              <RelatedArticles currentPostId={post.id} />
+              <RelatedArticles currentPostId={post.id} locale={locale} />
               <BlogComments postId={post.id} />
             </div>
             
