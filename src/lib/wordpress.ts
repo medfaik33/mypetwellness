@@ -177,6 +177,26 @@ class WordPressAPI {
   }
 
   /**
+   * Decode HTML entities - server-safe version
+   */
+  private decodeHtmlEntities(text: string): string {
+    return text
+      .replace(/&#8217;/g, "'")  // Right single quotation mark
+      .replace(/&#8216;/g, "'")  // Left single quotation mark
+      .replace(/&#8220;/g, '"')  // Left double quotation mark
+      .replace(/&#8221;/g, '"')  // Right double quotation mark
+      .replace(/&#8211;/g, "–")  // En dash
+      .replace(/&#8212;/g, "—")  // Em dash
+      .replace(/&#8230;/g, "…")  // Horizontal ellipsis
+      .replace(/&amp;/g, "&")    // Ampersand
+      .replace(/&lt;/g, "<")     // Less than
+      .replace(/&gt;/g, ">")     // Greater than
+      .replace(/&quot;/g, '"')   // Quotation mark
+      .replace(/&#39;/g, "'")    // Apostrophe
+      .replace(/&nbsp;/g, " ");  // Non-breaking space
+  }
+
+  /**
    * Transform WordPress post to our blog post format
    */
   transformPost(post: WordPressPost) {
@@ -189,11 +209,16 @@ class WordPressAPI {
     const wordCount = post.content.rendered.replace(/<[^>]*>/g, '').split(/\s+/).length;
     const readingTime = Math.ceil(wordCount / 200);
 
+    // Decode HTML entities in content, title, and excerpt
+    const decodedContent = this.decodeHtmlEntities(post.content.rendered);
+    const decodedTitle = this.decodeHtmlEntities(post.title.rendered.replace(/<[^>]*>/g, ''));
+    const decodedExcerpt = this.decodeHtmlEntities(post.excerpt.rendered.replace(/<[^>]*>/g, ''));
+
     return {
       id: post.id.toString(),
-      title: post.title.rendered.replace(/<[^>]*>/g, ''), // Strip HTML tags
-      excerpt: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
-      content: post.content.rendered,
+      title: decodedTitle,
+      excerpt: decodedExcerpt.substring(0, 200) + '...',
+      content: decodedContent,
       slug: post.slug,
       coverImage: featuredImage?.source_url || 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&h=400&fit=crop',
       author: {
