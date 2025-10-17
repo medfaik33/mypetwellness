@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   ChatBubbleLeftRightIcon, 
   HeartIcon,
@@ -171,9 +172,11 @@ export function BlogComments({ }: BlogCommentsProps) {
           >
             {/* Comment Header */}
             <div className="flex items-start space-x-3 mb-4">
-              <img
+              <Image
                 src={comment.author.avatar}
                 alt={comment.author.name}
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div className="flex-1">
@@ -245,9 +248,11 @@ export function BlogComments({ }: BlogCommentsProps) {
                 {comment.replies.map((reply) => (
                   <div key={reply.id} className="bg-neutral-50 dark:bg-neutral-700 rounded-lg p-4">
                     <div className="flex items-start space-x-3">
-                      <img
+                      <Image
                         src={reply.author.avatar}
                         alt={reply.author.name}
+                        width={32}
+                        height={32}
                         className="w-8 h-8 rounded-full"
                       />
                       <div className="flex-1">

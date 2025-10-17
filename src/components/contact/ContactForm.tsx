@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { EnvelopeIcon, CheckIcon, XMarkIcon, PaperAirplaneIcon, SparklesIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, XMarkIcon, PaperAirplaneIcon, SparklesIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
@@ -18,7 +17,6 @@ export function ContactForm() {
     urgency: 'normal'
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const t = useTranslations('contact.form');
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

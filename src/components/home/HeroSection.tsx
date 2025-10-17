@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ArrowRightIcon,
   StarIcon
@@ -74,9 +75,11 @@ export function HeroSection() {
           <div className="relative mt-8 lg:mt-0">
             <div className="relative bg-gray-100 dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
               <div className="relative h-64 sm:h-80 lg:h-96">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=400&fit=crop&crop=face"
                   alt="Featured Pet"
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -93,19 +96,25 @@ export function HeroSection() {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
                   <div className="flex items-center space-x-2">
                     <div className="flex -space-x-1 sm:-space-x-2">
-                      <img 
+                      <Image 
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" 
                         alt="Pet lover 1" 
+                        width={32}
+                        height={32}
                         className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover"
                       />
-                      <img 
+                      <Image 
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" 
                         alt="Pet lover 2" 
+                        width={32}
+                        height={32}
                         className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover"
                       />
-                      <img 
+                      <Image 
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" 
                         alt="Pet lover 3" 
+                        width={32}
+                        height={32}
                         className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover"
                       />
                     </div>

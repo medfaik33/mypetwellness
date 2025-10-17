@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { ContactHero } from '@/components/contact/ContactHero';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { ContactInfo } from '@/components/contact/ContactInfo';
 import { FAQ } from '@/components/contact/FAQ';
