@@ -56,10 +56,10 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 py-8">
+    <div className="bg-white dark:bg-gray-900 py-2">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+        <nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
           <Link href="/" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
             Home
           </Link>
@@ -80,11 +80,11 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8"
+          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-5"
         >
           {/* Category Badge */}
           {post.category && (
-            <div className="mb-4">
+            <div className="mb-2">
               <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">
                 {post.category}
               </span>
@@ -92,12 +92,12 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           )}
 
           {/* Title */}
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
             {post.title}
           </h1>
 
           {/* Meta Information */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-3">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
               <div className="flex items-center space-x-1">
                 <CalendarIcon className="h-4 w-4" />
@@ -144,7 +144,7 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           </div>
 
           {/* Author Info */}
-          <div className="flex items-center space-x-4 mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center space-x-4 mb-3 pb-3 border-b border-gray-200 dark:border-gray-700">
             <Image
               src={post.author.avatar}
               alt={post.author.name}
@@ -164,7 +164,7 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           </div>
 
           {/* Reading Stats */}
-          <div className="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <div className="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400 mb-3">
             <div className="flex items-center space-x-1">
               <ClockIcon className="h-4 w-4" />
               <span>{post.readingTime} min read</span>
@@ -178,7 +178,7 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           </div>
 
           {/* Blog Cover Image */}
-          <div className="mb-6">
+          <div className="mb-3">
             <Image
               src={post.coverImage}
               alt={post.title}

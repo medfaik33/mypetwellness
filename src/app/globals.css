@@ -94,4 +94,33 @@ body {
       transform: translateY(-20px);
     }
   }
+  
+  /* WordPress content spacing overrides */
+  .wp-content {
+    line-height: 1.5 !important;
+  }
+  
+  .wp-content p {
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+  }
+  
+  .wp-content h1,
+  .wp-content h2,
+  .wp-content h3,
+  .wp-content h4,
+  .wp-content h5,
+  .wp-content h6 {
+    margin-top: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .wp-content br {
+    display: none !important;
+  }
+  
+  .wp-content div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }

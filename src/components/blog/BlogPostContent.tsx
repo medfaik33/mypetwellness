@@ -87,10 +87,10 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         <article className="prose prose-lg max-w-none dark:prose-invert">
           {/* For now, we'll render the content as HTML since we're using mock data */}
           <div 
-            className="prose prose-lg max-w-none dark:prose-invert prose-gray dark:prose-gray
-              [&_h1]:text-gray-900 [&_h1]:dark:text-white [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4
-              [&_h2]:text-gray-900 [&_h2]:dark:text-white [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3
-              [&_h3]:text-gray-900 [&_h3]:dark:text-white [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2
+            className="wp-content prose prose-base max-w-none dark:prose-invert prose-gray dark:prose-gray
+              [&_h1]:text-gray-900 [&_h1]:dark:text-white [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mt-4 [&_h1]:mb-3
+              [&_h2]:text-gray-900 [&_h2]:dark:text-white [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mt-4 [&_h2]:mb-3
+              [&_h3]:text-gray-900 [&_h3]:dark:text-white [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-3 [&_h3]:mb-3
               [&_p]:text-gray-700 [&_p]:dark:text-gray-300 [&_p]:mb-4 [&_p]:leading-relaxed
               [&_ul]:list-disc [&_ul]:list-inside [&_ul]:mb-4 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300 [&_ul]:space-y-1
               [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-4 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300 [&_ol]:space-y-1
@@ -102,13 +102,19 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               [&_a]:text-blue-600 [&_a]:dark:text-blue-400 [&_a]:hover:underline
               [&_strong]:font-semibold [&_strong]:text-gray-900 [&_strong]:dark:text-white
               [&_em]:italic [&_em]:text-gray-700 [&_em]:dark:text-gray-300"
-            dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }}
+            dangerouslySetInnerHTML={{ __html: post.content
+              .replace(/\n\s*\n/g, '</p><p>')  // Replace double line breaks with paragraph breaks
+              .replace(/\n/g, ' ')  // Replace single line breaks with spaces
+              .replace(/<p>\s*<\/p>/g, '')  // Remove empty paragraphs
+              .replace(/(<h[1-6][^>]*>.*?<\/h[1-6]>)\s*(<p>)/g, '$1$2')  // Remove space between headings and paragraphs
+              .replace(/(<\/p>)\s*(<h[1-6][^>]*>)/g, '$1$2')  // Remove space between paragraphs and headings
+            }}
           />
         </article>
 
         {/* Tags */}
-        <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
-          <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">
+        <div className="mt-3 pt-2 border-t border-neutral-200 dark:border-neutral-700">
+          <h3 className="text-base font-semibold text-neutral-900 dark:text-white mb-2">
             Tags
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -124,7 +130,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         </div>
 
         {/* Share Section */}
-        <div className="mt-8 pt-8 border-t border-neutral-200 dark:border-neutral-700">
+        <div className="mt-3 pt-2 border-t border-neutral-200 dark:border-neutral-700">
           <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">
             Share this article
           </h3>
