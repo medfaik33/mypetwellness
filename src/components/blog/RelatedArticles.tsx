@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { CalendarIcon, ClockIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { formatDate } from '@/lib/utils';
 
@@ -10,54 +11,83 @@ interface RelatedArticlesProps {
   currentPostId: string;
 }
 
-const relatedArticles = [
-  {
-    id: '2',
-    title: 'Cat Nutrition: What Every Owner Should Know About Feline Dietary Needs',
-    excerpt: 'Discover the nutritional needs of cats at different life stages and how to choose the best food for your feline friend.',
-    coverImage: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=250&fit=crop',
-    author: {
-      name: 'Dr. Michael Chen',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
-    },
-    publishedAt: '2024-01-12',
-    readingTime: 6,
-    views: 892,
-    slug: 'cat-nutrition-guide'
-  },
-  {
-    id: '4',
-    title: 'Senior Dog Care: Keeping Your Aging Companion Healthy and Happy',
-    excerpt: 'Learn how to adapt your care routine as your dog ages. From diet adjustments to exercise modifications and health monitoring.',
-    coverImage: 'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=250&fit=crop',
-    author: {
-      name: 'Dr. Lisa Wang',
-      avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face'
-    },
-    publishedAt: '2024-01-08',
-    readingTime: 9,
-    views: 1456,
-    slug: 'senior-dog-care-guide'
-  },
-  {
-    id: '5',
-    title: 'Understanding Cat Behavior: Decoding Your Feline Friend\'s Actions',
-    excerpt: 'Cats communicate through behavior. Learn to understand what your cat is trying to tell you through their actions and body language.',
-    coverImage: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=250&fit=crop',
-    author: {
-      name: 'James Mitchell',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
-    },
-    publishedAt: '2024-01-05',
-    readingTime: 5,
-    views: 723,
-    slug: 'understanding-cat-behavior'
-  }
-];
+interface WordPressPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  coverImage: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  publishedAt: string;
+  readingTime: number;
+  views?: number;
+  slug: string;
+  category?: string;
+}
 
 export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
-  // Filter out the current post and get related articles
-  const filteredArticles = relatedArticles.filter(article => article.id !== currentPostId);
+  const [relatedArticles, setRelatedArticles] = useState<WordPressPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRelatedArticles = async () => {
+      try {
+        const response = await fetch('/api/wordpress/posts?per_page=6');
+        const data = await response.json();
+        
+        if (data.success && data.data) {
+          // Filter out the current post and limit to 3 articles
+          const filtered = data.data
+            .filter((post: WordPressPost) => post.id !== currentPostId)
+            .slice(0, 3);
+          setRelatedArticles(filtered);
+        }
+      } catch (error) {
+        console.error('Error fetching related articles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRelatedArticles();
+  }, [currentPostId]);
+
+  if (loading) {
+    return (
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-700"
+      >
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            Related Articles
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400">
+            Continue exploring with these recommended reads
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 animate-pulse">
+              <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4"></div>
+              <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+    );
+  }
+
+  if (relatedArticles.length === 0) {
+    return null;
+  }
 
   return (
     <motion.section
@@ -65,19 +95,19 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="mt-16 pt-12 border-t border-neutral-200 dark:border-neutral-700"
+      className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-700"
     >
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
           Related Articles
         </h2>
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-gray-600 dark:text-gray-400">
           Continue exploring with these recommended reads
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredArticles.map((article, index) => (
+        {relatedArticles.map((article, index) => (
           <motion.article
             key={article.id}
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +116,7 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
             viewport={{ once: true }}
           >
             <Link href={`/blog/${article.slug}`}>
-              <div className="bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
+              <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={article.coverImage}
@@ -97,15 +127,23 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 line-clamp-2">
+                  {article.category && (
+                    <div className="mb-3">
+                      <span className="inline-block px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
+                        {article.category}
+                      </span>
+                    </div>
+                  )}
+                  
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
                     {article.title}
                   </h3>
                   
-                  <p className="text-neutral-600 dark:text-neutral-300 mb-4 line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                     {article.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
                     <div className="flex items-center space-x-3">
                       <div className="flex items-center space-x-1">
                         <CalendarIcon className="h-4 w-4" />
@@ -116,13 +154,15 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
                         <span>{article.readingTime} min</span>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <EyeIcon className="h-4 w-4" />
-                      <span>{article.views}</span>
-                    </div>
+                    {article.views && (
+                      <div className="flex items-center space-x-1">
+                        <EyeIcon className="h-4 w-4" />
+                        <span>{article.views.toLocaleString()}</span>
+                      </div>
+                    )}
                   </div>
                   
-                  <div className="flex items-center pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                  <div className="flex items-center pt-4 border-t border-gray-200 dark:border-gray-700">
                     <Image
                       src={article.author.avatar}
                       alt={article.author.name}
@@ -130,7 +170,7 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
                       height={32}
                       className="rounded-full mr-3"
                     />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-300">
+                    <span className="text-sm text-gray-600 dark:text-gray-300">
                       {article.author.name}
                     </span>
                   </div>
@@ -143,7 +183,7 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
 
       <div className="text-center mt-8">
         <Link href="/blog">
-          <button className="btn-primary">
+          <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-200">
             View All Articles
           </button>
         </Link>
