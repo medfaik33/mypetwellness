@@ -1,246 +1,193 @@
-# PawVerse - Modern Multilingual Pet Blog
+# MyPetWellness 🐕🐱
 
-A complete, modern, responsive multilingual website for a pet blog called "PawVerse" built with Next.js 15, TypeScript, Tailwind CSS, and more.
+A modern, responsive pet wellness blog and community platform built with Next.js 15, featuring internationalization, WordPress integration, and beautiful UI design.
 
-## 🚀 Features
+## ✨ Features
 
-- **Modern Tech Stack**: Next.js 15 with App Router, TypeScript, Tailwind CSS
-- **Multilingual Support**: 16 languages (English, French, Spanish, German, Arabic, Italian, Portuguese, Japanese, Chinese, Hindi, Korean, Russian, Dutch, Turkish, Polish)
-- **Responsive Design**: Mobile-first design that works on all devices
-- **Dark/Light Mode**: Toggle between themes with system preference detection
-- **SEO Optimized**: Complete SEO setup with sitemap, robots.txt, and meta tags
-- **Blog System**: Full blog with MDX support, categories, tags, and search
-- **Pet Gallery**: Upload and showcase pets with filtering and search
-- **Contact System**: Contact form with email integration
-- **Database Ready**: Prisma schema for PostgreSQL
-- **Animations**: Smooth animations with Framer Motion
-- **Performance**: Optimized images, lazy loading, and fast loading times
+### 🎨 **Modern Design**
+- Clean, responsive UI with Tailwind CSS
+- Dark/Light mode support
+- Mobile-first design approach
+- Beautiful animations with Framer Motion
+
+### 🌍 **Internationalization**
+- Multi-language support (English, Spanish, French, German)
+- Dynamic routing for different locales
+- Translated content and UI elements
+
+### 📝 **Blog & Content**
+- WordPress API integration for blog posts
+- Dynamic blog post rendering
+- Category filtering and search
+- Related articles suggestions
+- Table of contents for long posts
+
+### 🏥 **Pet Wellness Focus**
+- Expert veterinarian profiles
+- Pet care guides and tips
+- Adoption and community features
+- Contact forms and FAQ sections
+
+### 🚀 **Performance**
+- Next.js 15 with App Router
+- Optimized images and fonts
+- SEO-friendly with structured data
+- PWA support with manifest
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Heroicons
+- **Internationalization**: next-intl
+- **Database**: Prisma (ready for expansion)
+- **CMS Integration**: WordPress REST API
+- **TypeScript**: Full type safety
 
 ## 📁 Project Structure
 
 ```
-petslover/
-├── prisma/
-│   └── schema.prisma          # Database schema
-├── public/                    # Static assets
-├── src/
-│   ├── app/                   # Next.js App Router pages
-│   │   ├── [locale]/          # Internationalized routes
-│   │   ├── globals.css        # Global styles
-│   │   ├── layout.tsx         # Root layout
-│   │   ├── sitemap.ts         # Sitemap generation
-│   │   ├── robots.ts          # Robots.txt
-│   │   └── manifest.ts        # PWA manifest
-│   ├── components/            # Reusable components
-│   │   ├── ui/                # Basic UI components
-│   │   ├── layout/            # Layout components
-│   │   ├── home/              # Home page components
-│   │   ├── blog/              # Blog components
-│   │   ├── gallery/           # Gallery components
-│   │   └── contact/           # Contact components
-│   ├── lib/                   # Utility functions
-│   ├── types/                 # TypeScript type definitions
-│   ├── messages/              # Translation files
-│   └── data/                  # Sample data and blog posts
-├── tailwind.config.ts         # Tailwind configuration
-├── next.config.ts             # Next.js configuration
-└── package.json               # Dependencies
+src/
+├── app/                    # Next.js App Router
+│   ├── [locale]/          # Internationalized routes
+│   │   ├── about/         # About page
+│   │   ├── blog/          # Blog pages
+│   │   ├── contact/       # Contact page
+│   │   └── ...
+│   ├── api/               # API routes
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── blog/             # Blog-specific components
+│   ├── contact/          # Contact page components
+│   ├── home/             # Homepage components
+│   ├── layout/           # Layout components
+│   └── ui/               # Reusable UI components
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+├── messages/             # Translation files
+├── types/                # TypeScript type definitions
+└── data/                 # Static data and content
 ```
 
-## 🛠️ Setup Instructions
+## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js 18+ 
-- PostgreSQL database
 - npm or yarn
 
-### 1. Clone and Install
+### Installation
 
-```bash
-cd petslover
-npm install
-```
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd petslover
+   ```
 
-### 2. Environment Variables
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Create a `.env.local` file in the root directory:
+3. **Set up environment variables**
+   Create a `.env.local` file:
+   ```env
+   WORDPRESS_API_URL=https://your-wordpress-site.com/wp-json/wp/v2
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+   ```
 
-```env
-# Database
-DATABASE_URL="postgresql://username:password@localhost:5432/pawverse"
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Next.js
-NEXTAUTH_SECRET="your-secret-key-here"
-NEXTAUTH_URL="http://localhost:3000"
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-# Email (Nodemailer)
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT=587
-SMTP_USER="your-email@gmail.com"
-SMTP_PASS="your-app-password"
+## 📱 Available Scripts
 
-# API Keys
-UNSPLASH_ACCESS_KEY="your-unsplash-key"
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript checks
 
-# App Configuration
-NEXT_PUBLIC_APP_URL="http://localhost:3000"
-NEXT_PUBLIC_APP_NAME="PawVerse"
-```
-
-### 3. Database Setup
-
-```bash
-# Generate Prisma client
-npm run db:generate
-
-# Push schema to database
-npm run db:push
-
-# (Optional) Open Prisma Studio
-npm run db:studio
-```
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-```
-
-Visit [http://localhost:3000](http://localhost:3000) to see the application.
-
-## 🌍 Supported Languages
-
-- 🇺🇸 English (en)
-- 🇫🇷 French (fr)
-- 🇪🇸 Spanish (es)
-- 🇩🇪 German (de)
-- 🇸🇦 Arabic (ar)
-- 🇮🇹 Italian (it)
-- 🇵🇹 Portuguese (pt)
-- 🇯🇵 Japanese (ja)
-- 🇨🇳 Chinese (zh)
-- 🇮🇳 Hindi (hi)
-- 🇰🇷 Korean (ko)
-- 🇷🇺 Russian (ru)
-- 🇳🇱 Dutch (nl)
-- 🇹🇷 Turkish (tr)
-- 🇵🇱 Polish (pl)
-
-## 📱 Pages & Features
-
-### Home Page
-- Hero section with animated pet elements
-- Featured articles section
-- Trending topics
-- Newsletter signup
-- Pet adoption CTA
-
-### Blog
-- Article listing with filters and search
-- Individual blog post pages with MDX support
-- Table of contents
-- Comments system
-- Related articles
-- Author information
-
-### Pet Gallery
-- Grid view of pet photos
-- Upload functionality with multi-step form
-- Filtering by species, location, featured status
-- Like and share functionality
-- Pet details and owner information
-
-### Contact
-- Contact form with validation
-- Contact information
-- FAQ section
-- Office hours and social media links
-
-## 🎨 Design System
-
-### Colors
-- **Primary**: Green tones for nature/pet theme
-- **Secondary**: Warm yellows for highlights
-- **Accent**: Soft pinks for special elements
-- **Neutral**: Grays for text and backgrounds
-
-### Typography
-- **Headings**: Poppins (modern, friendly)
-- **Body**: Inter (clean, readable)
-
-### Components
-- Fully accessible UI components
-- Consistent spacing and sizing
-- Smooth animations and transitions
-- Mobile-first responsive design
-
-## 🔧 Customization
-
-### Adding New Languages
-1. Add language code to `src/middleware.ts`
-2. Create translation file in `src/messages/`
-3. Add language to the language switcher component
-
-### Adding New Blog Posts
-1. Create MDX file in `src/data/blog-posts/`
-2. Add frontmatter with metadata
-3. Write content using Markdown/MDX syntax
-
-### Customizing Styling
-- Modify `tailwind.config.ts` for theme customization
-- Update `src/app/globals.css` for global styles
-- Customize component styles in individual component files
-
-## 🚀 Deployment
+## 🌐 Deployment
 
 ### Vercel (Recommended)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Add environment variables
-4. Deploy automatically
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
 ### Other Platforms
-The app can be deployed to any platform that supports Next.js:
 - Netlify
 - Railway
 - DigitalOcean App Platform
-- AWS Amplify
 
-## 📊 Performance Features
+## 🎯 Key Features Explained
 
-- **Image Optimization**: Next.js Image component with WebP/AVIF support
-- **Lazy Loading**: Components and images load as needed
-- **Code Splitting**: Automatic code splitting by Next.js
-- **Caching**: Optimized caching strategies
-- **SEO**: Complete SEO optimization with meta tags and structured data
+### Contact Page
+- Modern, responsive contact form
+- Multiple contact methods (email, phone, location)
+- Office hours display
+- FAQ section integration
+
+### Blog System
+- WordPress API integration
+- Dynamic post rendering
+- Category filtering
+- Search functionality
+- Related articles
+
+### Internationalization
+- Support for multiple languages
+- Dynamic locale routing
+- Translated UI elements
+- SEO-friendly URLs
+
+## 🎨 Customization
+
+### Branding
+- Update logo in `src/components/ui/Logo.tsx`
+- Modify colors in `tailwind.config.ts`
+- Change site metadata in `src/app/layout.tsx`
+
+### Content
+- Add new blog posts via WordPress
+- Update homepage content in components
+- Modify contact information
+
+### Styling
+- Customize Tailwind classes
+- Add new components in `src/components/ui/`
+- Update global styles in `src/app/globals.css`
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
 - Next.js team for the amazing framework
 - Tailwind CSS for the utility-first CSS framework
-- Framer Motion for smooth animations
-- All the pet lovers who inspired this project
+- WordPress for the robust CMS API
+- All contributors and the open-source community
 
 ## 📞 Support
 
-For support or questions:
-- Email: hello@pawverse.com
-- Create an issue on GitHub
-- Check the FAQ section on the contact page
+If you have any questions or need help, please:
+- Open an issue on GitHub
+- Contact us through the website
+- Check the documentation
 
 ---
 
-**Made with ❤️ for pet lovers everywhere**
+**Made with ❤️ for pet lovers everywhere** 🐾
