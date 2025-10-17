@@ -204,14 +204,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <StructuredData type="article" article={articleData} />
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <BlogPostHeader post={post} />
         
-        <div className="container-max section-padding py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <BlogPostContent post={post} />
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 mb-8">
+                <BlogPostContent post={post} />
+              </div>
               <RelatedArticles currentPostId={post.id} />
               <BlogComments postId={post.id} />
             </div>

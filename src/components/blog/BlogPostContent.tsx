@@ -84,10 +84,24 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         transition={{ duration: 0.6 }}
         className="lg:col-span-3"
       >
-        <article className="prose prose-lg max-w-none">
+        <article className="prose prose-lg max-w-none dark:prose-invert">
           {/* For now, we'll render the content as HTML since we're using mock data */}
           <div 
-            className="prose prose-lg max-w-none prose-headings:text-neutral-900 prose-headings:dark:text-white prose-p:text-neutral-700 prose-p:dark:text-neutral-300 prose-li:text-neutral-700 prose-li:dark:text-neutral-300 prose-strong:text-neutral-900 prose-strong:dark:text-white prose-a:text-primary-600 prose-a:dark:text-primary-400 hover:prose-a:text-primary-700 hover:prose-a:dark:text-primary-300"
+            className="prose prose-lg max-w-none dark:prose-invert prose-gray dark:prose-gray
+              [&_h1]:text-gray-900 [&_h1]:dark:text-white [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4
+              [&_h2]:text-gray-900 [&_h2]:dark:text-white [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3
+              [&_h3]:text-gray-900 [&_h3]:dark:text-white [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2
+              [&_p]:text-gray-700 [&_p]:dark:text-gray-300 [&_p]:mb-4 [&_p]:leading-relaxed
+              [&_ul]:list-disc [&_ul]:list-inside [&_ul]:mb-4 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300 [&_ul]:space-y-1
+              [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:mb-4 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300 [&_ol]:space-y-1
+              [&_li]:text-gray-700 [&_li]:dark:text-gray-300
+              [&_blockquote]:border-l-4 [&_blockquote]:border-blue-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-gray-600 [&_blockquote]:dark:text-gray-400 [&_blockquote]:my-4
+              [&_code]:bg-gray-100 [&_code]:dark:bg-gray-700 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono [&_code]:text-gray-800 [&_code]:dark:text-gray-200
+              [&_pre]:bg-gray-100 [&_pre]:dark:bg-gray-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-4
+              [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-gray-800 [&_pre_code]:dark:text-gray-200
+              [&_a]:text-blue-600 [&_a]:dark:text-blue-400 [&_a]:hover:underline
+              [&_strong]:font-semibold [&_strong]:text-gray-900 [&_strong]:dark:text-white
+              [&_em]:italic [&_em]:text-gray-700 [&_em]:dark:text-gray-300"
             dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }}
           />
         </article>
