@@ -92,9 +92,11 @@ src/
 3. **Set up environment variables**
    Create a `.env.local` file:
    ```env
-   WORDPRESS_API_URL=https://your-wordpress-site.com/wp-json/wp/v2
+   WORDPRESS_API_URL=https://gurastech.com/wp-json/wp/v2
    NEXT_PUBLIC_SITE_URL=http://localhost:3000
    ```
+   
+   **Note**: This project is already configured to work with the WordPress site at `gurastech.com`. The API is tested and working with blog posts about pet care and dog breeds.
 
 4. **Run the development server**
    ```bash
@@ -117,7 +119,10 @@ src/
 ### Vercel (Recommended)
 1. Push your code to GitHub
 2. Connect your repository to Vercel
-3. Deploy automatically
+3. Add environment variables:
+   - `WORDPRESS_API_URL` = `https://gurastech.com/wp-json/wp/v2`
+   - `NEXT_PUBLIC_SITE_URL` = `https://your-deployed-site.vercel.app`
+4. Deploy automatically
 
 ### Other Platforms
 - Netlify
