@@ -164,7 +164,7 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
           </div>
 
           {/* Reading Stats */}
-          <div className="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400 mb-6">
             <div className="flex items-center space-x-1">
               <ClockIcon className="h-4 w-4" />
               <span>{post.readingTime} min read</span>
@@ -175,6 +175,18 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
                 <span>{post.views.toLocaleString()} views</span>
               </div>
             )}
+          </div>
+
+          {/* Blog Cover Image */}
+          <div className="mb-6">
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg shadow-lg object-cover"
+              priority
+            />
           </div>
         </motion.div>
       </div>
