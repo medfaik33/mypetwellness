@@ -1,0 +1,35 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "blog": "Blog",
+    "gallery": "Galerie",
+    "contact": "Kontakt",
+    "about": "Über uns"
+  },
+  "home": {
+    "hero": {
+      "title": "Willkommen bei PawVerse",
+      "subtitle": "Ihr ultimativer Haustier-Begleiter Blog",
+      "description": "Entdecken Sie erstaunliche Geschichten, Experten-Tipps und verbinden Sie sich mit anderen Tierliebhabern aus der ganzen Welt.",
+      "cta": "Unseren Blog erkunden",
+      "adopt": "Ihr perfektes Haustier finden"
+    }
+  },
+  "blog": {
+    "title": "Haustier Blog",
+    "subtitle": "Expertenrat und herzerwärmende Geschichten"
+  },
+  "gallery": {
+    "title": "Haustier Galerie",
+    "subtitle": "Lernen Sie unsere entzückenden Gemeinschaftstiere kennen"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir würden gerne von Ihnen hören"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Etwas ist schief gelaufen",
+    "retry": "Erneut versuchen"
+  }
+}
