@@ -7,16 +7,25 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Logo } from '@/components/ui/Logo';
+import { useWordPressCategoriesForBlog } from '@/hooks/useWordPressCategoriesForBlog';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations('navigation');
   const locale = useLocale();
+  
+  // Fetch categories from WordPress
+  const { categories } = useWordPressCategoriesForBlog();
 
+  // Create main navigation with WordPress categories
   const navigation = [
     { name: t('home'), href: `/${locale}` },
     { name: t('blog'), href: `/${locale}/blog` },
-    { name: t('contact'), href: `/${locale}/contact` },
+    ...categories.slice(0, 2).map(cat => ({
+      name: cat.name,
+      href: `/${locale}/blog?category=${cat.slug}`
+    })),
+    { name: 'About Us', href: `/${locale}/about` }
   ];
 
   return (
@@ -29,12 +38,12 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200 hover:scale-105 relative group text-sm lg:text-base"
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200 hover:scale-105 relative group text-sm lg:text-base whitespace-nowrap"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-200 group-hover:w-full"></span>

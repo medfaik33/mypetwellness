@@ -52,7 +52,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   return (
     <>
       <StructuredData type="blog" />
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-white dark:bg-black">
         <BlogGrid 
           category={category}
           tag={tag}
