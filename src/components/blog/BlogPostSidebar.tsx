@@ -6,9 +6,7 @@ import Link from 'next/link';
 import { 
   CalendarIcon, 
   ClockIcon, 
-  EyeIcon,
   ShareIcon,
-  HeartIcon,
   BookmarkIcon
 } from '@heroicons/react/24/outline';
 import { formatDate } from '@/lib/utils';
@@ -56,14 +54,7 @@ const relatedPosts = [
 ];
 
 export function BlogPostSidebar({ post }: BlogPostSidebarProps) {
-  const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [likesCount, setLikesCount] = useState(42);
-
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-    setLikesCount(prev => isLiked ? prev - 1 : prev + 1);
-  };
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -153,15 +144,6 @@ export function BlogPostSidebar({ post }: BlogPostSidebarProps) {
               {post.readingTime} min
             </span>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <EyeIcon className="h-4 w-4 text-neutral-500" />
-              <span className="text-sm text-neutral-600 dark:text-neutral-400">Views</span>
-            </div>
-            <span className="text-sm font-medium text-neutral-900 dark:text-white">
-              {post.views.toLocaleString()}
-            </span>
-          </div>
         </div>
       </div>
 
@@ -171,19 +153,6 @@ export function BlogPostSidebar({ post }: BlogPostSidebarProps) {
           Actions
         </h3>
         <div className="space-y-3">
-          <button
-            onClick={handleLike}
-            className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 ${
-              isLiked
-                ? 'bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400'
-                : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-600 dark:hover:text-red-400'
-            }`}
-          >
-            <HeartIcon className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
-            <span className="font-medium">
-              {isLiked ? 'Liked' : 'Like'} ({likesCount})
-            </span>
-          </button>
           
           <button
             onClick={() => setIsBookmarked(!isBookmarked)}

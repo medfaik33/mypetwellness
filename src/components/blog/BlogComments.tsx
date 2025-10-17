@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { 
   ChatBubbleLeftRightIcon, 
-  HeartIcon,
   ArrowUturnLeftIcon,
   FlagIcon
 } from '@heroicons/react/24/outline';
@@ -196,10 +195,6 @@ export function BlogComments({ }: BlogCommentsProps) {
 
             {/* Comment Actions */}
             <div className="flex items-center space-x-4 text-sm">
-              <button className="flex items-center space-x-1 text-neutral-500 dark:text-neutral-400 hover:text-red-500 transition-colors duration-200">
-                <HeartIcon className="h-4 w-4" />
-                <span>{comment.likes}</span>
-              </button>
               <button 
                 onClick={() => setReplyTo(replyTo === comment.id ? null : comment.id)}
                 className="flex items-center space-x-1 text-neutral-500 dark:text-neutral-400 hover:text-primary-600 transition-colors duration-200"
@@ -268,10 +263,6 @@ export function BlogComments({ }: BlogCommentsProps) {
                           {reply.content}
                         </p>
                         <div className="flex items-center space-x-3 mt-2 text-xs">
-                          <button className="flex items-center space-x-1 text-neutral-500 dark:text-neutral-400 hover:text-red-500 transition-colors duration-200">
-                            <HeartIcon className="h-3 w-3" />
-                            <span>{reply.likes}</span>
-                          </button>
                           <button className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors duration-200">
                             <FlagIcon className="h-3 w-3" />
                           </button>

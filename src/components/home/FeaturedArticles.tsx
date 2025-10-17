@@ -3,7 +3,7 @@
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ClockIcon, ArrowRightIcon, EyeIcon } from '@heroicons/react/24/outline';
+import { ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { formatDate } from '@/lib/utils';
 import { useWordPressCategories } from '@/hooks/useWordPressCategories';
 
@@ -22,7 +22,6 @@ export function FeaturedArticles() {
             {/* Section Header */}
             <div className="text-center mb-12 sm:mb-16">
               <div className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-sm border border-gray-300/50 dark:border-gray-700/50 mb-4 sm:mb-6">
-                <EyeIcon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 dark:text-gray-300" />
                 <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">
                   Featured Articles
                 </span>
@@ -104,10 +103,6 @@ export function FeaturedArticles() {
                               <span className="px-2 sm:px-3 py-1 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-xs font-semibold text-gray-700 dark:text-gray-300 rounded-full">
                                 {article.category}
                               </span>
-                            </div>
-                            <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center space-x-1 text-white text-xs sm:text-sm">
-                              <EyeIcon className="h-3 w-3 sm:h-4 sm:w-4" />
-                              <span>{article.views.toLocaleString()}</span>
                             </div>
                           </div>
                           

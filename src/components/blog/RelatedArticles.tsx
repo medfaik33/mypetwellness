@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { CalendarIcon, ClockIcon, EyeIcon } from '@heroicons/react/24/outline';
+import { CalendarIcon, ClockIcon } from '@heroicons/react/24/outline';
 import { formatDate } from '@/lib/utils';
 
 interface RelatedArticlesProps {
@@ -154,12 +154,6 @@ export function RelatedArticles({ currentPostId }: RelatedArticlesProps) {
                         <span>{article.readingTime} min</span>
                       </div>
                     </div>
-                    {article.views && (
-                      <div className="flex items-center space-x-1">
-                        <EyeIcon className="h-4 w-4" />
-                        <span>{article.views.toLocaleString()}</span>
-                      </div>
-                    )}
                   </div>
                   
                   <div className="flex items-center pt-4 border-t border-gray-200 dark:border-gray-700">

@@ -7,9 +7,7 @@ import Link from 'next/link';
 import { 
   CalendarIcon, 
   ClockIcon, 
-  EyeIcon,
   ShareIcon,
-  HeartIcon,
   BookmarkIcon,
   ChevronRightIcon
 } from '@heroicons/react/24/outline';
@@ -35,7 +33,6 @@ interface BlogPostHeaderProps {
 }
 
 export function BlogPostHeader({ post }: BlogPostHeaderProps) {
-  const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleShare = async () => {
@@ -114,17 +111,6 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
             {/* Action Buttons */}
             <div className="flex items-center space-x-3">
               <button
-                onClick={() => setIsLiked(!isLiked)}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
-                  isLiked
-                    ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-400'
-                    : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900 dark:hover:text-red-400'
-                }`}
-              >
-                <HeartIcon className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
-                <span className="text-sm">Like</span>
-              </button>
-              <button
                 onClick={() => setIsBookmarked(!isBookmarked)}
                 className={`p-2 rounded-lg transition-all duration-200 ${
                   isBookmarked 
@@ -169,12 +155,6 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
               <ClockIcon className="h-4 w-4" />
               <span>{post.readingTime} min read</span>
             </div>
-            {post.views && (
-              <div className="flex items-center space-x-1">
-                <EyeIcon className="h-4 w-4" />
-                <span>{post.views.toLocaleString()} views</span>
-              </div>
-            )}
           </div>
 
           {/* Blog Cover Image */}
