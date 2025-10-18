@@ -224,7 +224,7 @@ class WordPressAPI {
           author: {
             name: author?.name || 'Pet Care Expert',
             avatar: author?.avatar_urls?.['96'] || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
-            bio: author?.description || 'Pet care enthusiast and writer',
+            bio: 'Pet care enthusiast and writer',
             socialLinks: {
               twitter: undefined,
               instagram: undefined,
