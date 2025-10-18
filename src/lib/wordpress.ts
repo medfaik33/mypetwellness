@@ -214,31 +214,31 @@ class WordPressAPI {
         const decodedTitle = this.decodeHtmlEntities((post.title?.rendered || '').replace(/<[^>]*>/g, ''));
         const decodedExcerpt = this.decodeHtmlEntities((post.excerpt?.rendered || '').replace(/<[^>]*>/g, ''));
 
-    return {
-      id: post.id.toString(),
-      title: decodedTitle,
-      excerpt: decodedExcerpt.substring(0, 200) + '...',
-      content: decodedContent,
-      slug: post.slug,
-      coverImage: featuredImage?.source_url || 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&h=400&fit=crop',
-      author: {
-        name: author?.name || 'Unknown Author',
-        avatar: author?.avatar_urls?.['96'] || 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face',
-        bio: 'Pet care enthusiast and writer',
-        socialLinks: {
-          twitter: undefined,
-          instagram: undefined,
-          website: undefined
-        }
-      },
-      publishedAt: post.date,
-      readingTime,
-      tags: tags.map(tag => tag.name),
-      category: categories[0]?.name || 'General',
-      views: Math.floor(Math.random() * 2000) + 500, // Mock views count
-      featured: false,
-      locale: 'en'
-    };
+        return {
+          id: post.id.toString(),
+          title: decodedTitle || 'Untitled Article',
+          excerpt: decodedExcerpt ? decodedExcerpt.substring(0, 200) + '...' : 'No excerpt available',
+          content: decodedContent || '',
+          slug: post.slug || 'untitled-article',
+          coverImage: featuredImage?.source_url || 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&h=400&fit=crop',
+          author: {
+            name: author?.name || 'Pet Care Expert',
+            avatar: author?.avatar_urls?.['96'] || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
+            bio: author?.description || 'Pet care enthusiast and writer',
+            socialLinks: {
+              twitter: undefined,
+              instagram: undefined,
+              website: undefined
+            }
+          },
+          publishedAt: post.date || new Date().toISOString(),
+          readingTime: readingTime || 5,
+          tags: tags.map(tag => tag.name),
+          category: categories[0]?.name || 'General',
+          views: Math.floor(Math.random() * 2000) + 500, // Mock views count
+          featured: false,
+          locale: 'en'
+        };
   }
 }
 
