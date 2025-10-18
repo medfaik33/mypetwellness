@@ -112,7 +112,84 @@ export function useWordPressCategories() {
           catWithPosts => catWithPosts.posts.length > 0
         );
 
-        setData(categoriesWithPostsFiltered);
+        // Prioritize "Pet Wellness Exams" category and specific article
+        const prioritizedData = [...categoriesWithPostsFiltered];
+        
+        // Find the "Pet Wellness Exams" category
+        let wellnessExamsCategoryIndex = -1;
+        for (let catIndex = 0; catIndex < prioritizedData.length; catIndex++) {
+          const category = prioritizedData[catIndex];
+          if (category.category.name.toLowerCase().includes('wellness') && 
+              category.category.name.toLowerCase().includes('exam')) {
+            wellnessExamsCategoryIndex = catIndex;
+            break;
+          }
+        }
+        
+        // Find the specific article across all categories
+        let specificArticle = null;
+        let sourceCategoryIndex = -1;
+        let sourceArticleIndex = -1;
+        
+        for (let catIndex = 0; catIndex < prioritizedData.length; catIndex++) {
+          const category = prioritizedData[catIndex];
+          const articleIndex = category.posts.findIndex(post => 
+            post.slug === 'pet-wellness-exams'
+          );
+          
+          if (articleIndex >= 0) {
+            specificArticle = category.posts[articleIndex];
+            sourceCategoryIndex = catIndex;
+            sourceArticleIndex = articleIndex;
+            break;
+          }
+        }
+        
+        // If article not found in any category, fetch it directly
+        if (!specificArticle) {
+          try {
+            const response = await fetch('/api/wordpress/posts?per_page=50');
+            const data = await response.json();
+            if (data.success && data.data) {
+              const foundPost = data.data.find((post: any) => post.slug === 'pet-wellness-exams');
+              if (foundPost) {
+                specificArticle = wordpressAPI.transformPost(foundPost);
+              }
+            }
+          } catch (error) {
+            console.error('Error fetching specific article:', error);
+          }
+        }
+        
+        // Move wellness category to first position and prioritize specific article
+        if (wellnessExamsCategoryIndex >= 0) {
+          const wellnessCategory = prioritizedData[wellnessExamsCategoryIndex];
+          
+          // If we found the specific article, ensure it's first in the wellness category
+          if (specificArticle) {
+            if (sourceCategoryIndex !== wellnessExamsCategoryIndex) {
+              // Article is in different category - move it to wellness category
+              if (sourceCategoryIndex >= 0) {
+                prioritizedData[sourceCategoryIndex].posts.splice(sourceArticleIndex, 1);
+              }
+              // Add to beginning of wellness category
+              wellnessCategory.posts.unshift(specificArticle);
+            } else {
+              // Article is already in wellness category - move it to first position
+              const currentIndex = wellnessCategory.posts.findIndex(post => post.slug === 'pet-wellness-exams');
+              if (currentIndex > 0) {
+                const article = wellnessCategory.posts.splice(currentIndex, 1)[0];
+                wellnessCategory.posts.unshift(article);
+              }
+            }
+          }
+          
+          // Move wellness category to first position
+          prioritizedData.splice(wellnessExamsCategoryIndex, 1);
+          prioritizedData.unshift(wellnessCategory);
+        }
+
+        setData(prioritizedData);
       } catch (error) {
         console.error('Error fetching WordPress categories with posts:', error);
         setError(error instanceof Error ? error.message : 'Failed to fetch categories');

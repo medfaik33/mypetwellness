@@ -205,14 +205,14 @@ class WordPressAPI {
     const categories = post._embedded?.['wp:term']?.[0] || [];
     const tags = post._embedded?.['wp:term']?.[1] || [];
 
-    // Calculate reading time (rough estimate: 200 words per minute)
-    const wordCount = post.content.rendered.replace(/<[^>]*>/g, '').split(/\s+/).length;
-    const readingTime = Math.ceil(wordCount / 200);
+        // Calculate reading time (rough estimate: 200 words per minute)
+        const wordCount = (post.content?.rendered || '').replace(/<[^>]*>/g, '').split(/\s+/).length;
+        const readingTime = Math.ceil(wordCount / 200);
 
-    // Decode HTML entities in content, title, and excerpt
-    const decodedContent = this.decodeHtmlEntities(post.content.rendered);
-    const decodedTitle = this.decodeHtmlEntities(post.title.rendered.replace(/<[^>]*>/g, ''));
-    const decodedExcerpt = this.decodeHtmlEntities(post.excerpt.rendered.replace(/<[^>]*>/g, ''));
+        // Decode HTML entities in content, title, and excerpt
+        const decodedContent = this.decodeHtmlEntities(post.content?.rendered || '');
+        const decodedTitle = this.decodeHtmlEntities((post.title?.rendered || '').replace(/<[^>]*>/g, ''));
+        const decodedExcerpt = this.decodeHtmlEntities((post.excerpt?.rendered || '').replace(/<[^>]*>/g, ''));
 
     return {
       id: post.id.toString(),
