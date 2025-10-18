@@ -7,7 +7,7 @@
   },
   "home": {
     "hero": {
-      "title": "Welcome to MyPetWellness",
+      "title": "Welcome to My Pet Wellness",
       "subtitle": "Your Ultimate Pet Companion Blog",
       "description": "Discover amazing stories, expert tips, and connect with fellow pet lovers from around the world. From training guides to health advice, we've got everything your furry, feathered, or scaled friends need.",
       "cta": "Explore Our Blog",
@@ -108,7 +108,7 @@
     "language": "Language"
   },
   "footer": {
-    "description": "MyPetWellness - Your ultimate destination for all things pets. Connect, learn, and share with fellow pet lovers worldwide.",
+    "description": "My Pet Wellness - Your ultimate destination for all things pets. Connect, learn, and share with fellow pet lovers worldwide.",
     "links": {
       "about": "About Us",
       "privacy": "Privacy Policy",
@@ -117,6 +117,6 @@
     },
     "social": "Follow Us",
     "newsletter": "Newsletter",
-    "copyright": "© 2024 MyPetWellness. All rights reserved."
+    "copyright": "© 2024 My Pet Wellness. All rights reserved."
   }
 }

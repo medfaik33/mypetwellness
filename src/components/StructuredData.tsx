@@ -24,7 +24,7 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
           "url": currentUrl,
           "logo": `${baseUrl}/logo.png`,
           "description": "Expert guidance on pet wellness exams, preventive care, and comprehensive pet health. Trusted veterinary advice for your pet's optimal wellness journey.",
@@ -84,12 +84,12 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "Blog",
-              "name": "MyPetWellness Pet Wellness Blog",
+              "name": "My Pet Wellness Pet Wellness Blog",
           "description": "Expert articles on pet wellness exams, preventive care, and comprehensive pet health",
           "url": locale === 'en' ? `${baseUrl}/blog` : `${baseUrl}/${locale}/blog`,
           "publisher": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "logo": {
               "@type": "ImageObject",
               "url": `${baseUrl}/logo.png`
@@ -112,7 +112,7 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
           },
           "publisher": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "logo": {
               "@type": "ImageObject",
               "url": `${baseUrl}/logo.png`
@@ -173,12 +173,12 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "AboutPage",
-              "name": "About MyPetWellness",
-          "description": "Learn about MyPetWellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.",
+              "name": "About My Pet Wellness",
+          "description": "Learn about My Pet Wellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.",
           "url": `${currentUrl}/about`,
           "mainEntity": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "url": currentUrl,
             "description": "Expert guidance on pet wellness exams, preventive care, and comprehensive pet health. Trusted veterinary advice for your pet's optimal wellness journey.",
             "foundingDate": "2024",
@@ -202,12 +202,12 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "ContactPage",
-              "name": "Contact MyPetWellness",
-          "description": "Get in touch with MyPetWellness for pet wellness exam questions, preventive care advice, and veterinary consultations.",
+              "name": "Contact My Pet Wellness",
+          "description": "Get in touch with My Pet Wellness for pet wellness exam questions, preventive care advice, and veterinary consultations.",
           "url": `${currentUrl}/contact`,
           "mainEntity": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+1-555-123-4567",
@@ -229,12 +229,12 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "WebPage",
-              "name": "Privacy Policy - MyPetWellness",
-          "description": "Learn how MyPetWellness protects your privacy and handles your personal information when you use our pet wellness resources.",
+              "name": "Privacy Policy - My Pet Wellness",
+          "description": "Learn how My Pet Wellness protects your privacy and handles your personal information when you use our pet wellness resources.",
           "url": `${currentUrl}/privacy`,
           "mainEntity": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "privacyPolicy": `${currentUrl}/privacy`
           }
         };
@@ -243,12 +243,12 @@ export function StructuredData({ type = 'home', article }: StructuredDataProps) 
         return {
           "@context": "https://schema.org",
           "@type": "WebPage",
-              "name": "Terms of Service - MyPetWellness",
-          "description": "Read our Terms of Service to understand the rules and guidelines for using MyPetWellness pet wellness resources.",
+              "name": "Terms of Service - My Pet Wellness",
+          "description": "Read our Terms of Service to understand the rules and guidelines for using My Pet Wellness pet wellness resources.",
           "url": `${currentUrl}/terms`,
           "mainEntity": {
             "@type": "Organization",
-              "name": "MyPetWellness",
+              "name": "My Pet Wellness",
             "termsOfService": `${currentUrl}/terms`
           }
         };

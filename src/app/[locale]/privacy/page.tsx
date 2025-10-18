@@ -11,14 +11,14 @@ export async function generateMetadata({ params }: PrivacyPageProps): Promise<Me
   const canonicalUrl = locale === 'en' ? `${baseUrl}/privacy` : `${baseUrl}/${locale}/privacy`;
 
   return {
-    title: 'Privacy Policy - MyPetWellness',
-    description: 'Learn how MyPetWellness protects your privacy and handles your personal information when you use our pet wellness resources.',
+    title: 'Privacy Policy - My Pet Wellness',
+    description: 'Learn how My Pet Wellness protects your privacy and handles your personal information when you use our pet wellness resources.',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Privacy Policy - MyPetWellness',
-      description: 'Learn how MyPetWellness protects your privacy and handles your personal information when you use our pet wellness resources.',
+      title: 'Privacy Policy - My Pet Wellness',
+      description: 'Learn how My Pet Wellness protects your privacy and handles your personal information when you use our pet wellness resources.',
       type: 'website',
       url: canonicalUrl,
     },

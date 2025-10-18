@@ -16,14 +16,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const canonicalUrl = locale === 'en' ? baseUrl : `${baseUrl}/${locale}`;
 
   return {
-    title: 'Pet Wellness Exams & Preventive Care - MyPetWellness',
+    title: 'Pet Wellness Exams & Preventive Care - My Pet Wellness',
     description: 'Expert guidance on pet wellness exams, preventive care, and comprehensive pet health. Trusted veterinary advice for your pet\'s optimal wellness journey.',
     keywords: 'pet wellness exams, pet preventive care, veterinary wellness, pet health checkups, animal wellness, pet care tips',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Pet Wellness Exams & Preventive Care - MyPetWellness',
+      title: 'Pet Wellness Exams & Preventive Care - My Pet Wellness',
       description: 'Expert guidance on pet wellness exams, preventive care, and comprehensive pet health. Trusted veterinary advice for your pet\'s optimal wellness journey.',
       type: 'website',
       url: canonicalUrl,

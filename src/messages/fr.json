@@ -8,7 +8,7 @@
   },
   "home": {
     "hero": {
-      "title": "Bienvenue sur MyPetWellness",
+      "title": "Bienvenue sur My Pet Wellness",
       "subtitle": "Votre Blog Compagnon Animalier Ultime",
       "description": "Découvrez des histoires incroyables, des conseils d'experts et connectez-vous avec d'autres amoureux des animaux du monde entier. Des guides d'entraînement aux conseils de santé, nous avons tout ce dont vos amis à fourrure, à plumes ou à écailles ont besoin.",
       "cta": "Explorer Notre Blog",
@@ -134,7 +134,7 @@
     "language": "Langue"
   },
   "footer": {
-    "description": "MyPetWellness - Votre destination ultime pour tout ce qui concerne les animaux. Connectez-vous, apprenez et partagez avec d'autres amoureux des animaux du monde entier.",
+    "description": "My Pet Wellness - Votre destination ultime pour tout ce qui concerne les animaux. Connectez-vous, apprenez et partagez avec d'autres amoureux des animaux du monde entier.",
     "links": {
       "about": "À Propos",
       "privacy": "Politique de Confidentialité",
@@ -143,6 +143,6 @@
     },
     "social": "Suivez-Nous",
     "newsletter": "Newsletter",
-    "copyright": "© 2024 MyPetWellness. Tous droits réservés."
+    "copyright": "© 2024 My Pet Wellness. Tous droits réservés."
   }
 }

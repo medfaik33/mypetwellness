@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
   const canonicalUrl = locale === 'en' ? `${baseUrl}/about` : `${baseUrl}/${locale}/about`;
 
   return {
-    title: 'About Us - MyPetWellness',
-    description: 'Learn about MyPetWellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.',
+    title: 'About Us - My Pet Wellness',
+    description: 'Learn about My Pet Wellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'About Us - MyPetWellness',
-      description: 'Learn about MyPetWellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.',
+      title: 'About Us - My Pet Wellness',
+      description: 'Learn about My Pet Wellness, your trusted source for pet wellness exams, preventive care, and comprehensive pet health guidance from veterinary experts.',
       type: 'website',
       url: canonicalUrl,
     },
@@ -35,7 +35,7 @@ export default function AboutPage() {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-            About MyPetWellness
+            About My Pet Wellness
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Your trusted companion for pet wellness exams, preventive care, and comprehensive pet health guidance.
@@ -49,7 +49,7 @@ export default function AboutPage() {
           </h2>
           <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-              At MyPetWellness, we believe that every pet deserves the best possible care. Our mission is to provide pet owners with expert guidance on pet wellness exams, preventive care, and comprehensive health management to ensure their furry friends live long, healthy, and happy lives.
+              At My Pet Wellness, we believe that every pet deserves the best possible care. Our mission is to provide pet owners with expert guidance on pet wellness exams, preventive care, and comprehensive health management to ensure their furry friends live long, healthy, and happy lives.
             </p>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               We combine the expertise of certified veterinarians with the latest research in pet health to deliver reliable, evidence-based information that empowers pet owners to make informed decisions about their pets&apos; wellbeing.
@@ -97,7 +97,7 @@ export default function AboutPage() {
           </h2>
           <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-              MyPetWellness is powered by a team of passionate pet health professionals, including certified veterinarians, veterinary technicians, and pet care specialists. Our diverse team brings together decades of experience in various aspects of pet health and wellness.
+              My Pet Wellness is powered by a team of passionate pet health professionals, including certified veterinarians, veterinary technicians, and pet care specialists. Our diverse team brings together decades of experience in various aspects of pet health and wellness.
             </p>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               Each team member is dedicated to staying current with the latest developments in veterinary medicine and pet care, ensuring that our content reflects the most up-to-date best practices in pet wellness exams and preventive care.

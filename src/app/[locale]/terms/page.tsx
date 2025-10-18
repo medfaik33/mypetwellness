@@ -11,14 +11,14 @@ export async function generateMetadata({ params }: TermsPageProps): Promise<Meta
   const canonicalUrl = locale === 'en' ? `${baseUrl}/terms` : `${baseUrl}/${locale}/terms`;
 
   return {
-    title: 'Terms of Service - MyPetWellness',
-    description: 'Read our Terms of Service to understand the rules and guidelines for using MyPetWellness pet wellness resources.',
+    title: 'Terms of Service - My Pet Wellness',
+    description: 'Read our Terms of Service to understand the rules and guidelines for using My Pet Wellness pet wellness resources.',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: 'Terms of Service - MyPetWellness',
-      description: 'Read our Terms of Service to understand the rules and guidelines for using MyPetWellness pet wellness resources.',
+      title: 'Terms of Service - My Pet Wellness',
+      description: 'Read our Terms of Service to understand the rules and guidelines for using My Pet Wellness pet wellness resources.',
       type: 'website',
       url: canonicalUrl,
     },
@@ -53,7 +53,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                By accessing and using MyPetWellness, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                By accessing and using My Pet Wellness, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
               </p>
             </div>
           </section>
@@ -65,12 +65,12 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                Permission is granted to temporarily download one copy of MyPetWellness materials for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                Permission is granted to temporarily download one copy of My Pet Wellness materials for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
               </p>
               <ul className="list-disc list-inside space-y-2 text-base text-gray-600 dark:text-gray-300 ml-4">
                 <li>Modify or copy the materials</li>
                 <li>Use the materials for any commercial purpose or for any public display</li>
-                <li>Attempt to reverse engineer any software contained on MyPetWellness</li>
+                <li>Attempt to reverse engineer any software contained on My Pet Wellness</li>
                 <li>Remove any copyright or other proprietary notations from the materials</li>
               </ul>
             </div>
@@ -83,7 +83,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                The information provided on MyPetWellness is for educational and informational purposes only and is not intended as medical advice. Always consult with a qualified veterinarian regarding your pet&apos;s health and wellness exams.
+                The information provided on My Pet Wellness is for educational and informational purposes only and is not intended as medical advice. Always consult with a qualified veterinarian regarding your pet&apos;s health and wellness exams.
               </p>
               <ul className="list-disc list-inside space-y-2 text-base text-gray-600 dark:text-gray-300 ml-4">
                 <li>Our content does not replace professional veterinary care</li>
@@ -101,7 +101,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                You agree not to use MyPetWellness to:
+                You agree not to use My Pet Wellness to:
               </p>
               <ul className="list-disc list-inside space-y-2 text-base text-gray-600 dark:text-gray-300 ml-4">
                 <li>Post or transmit any unlawful, threatening, defamatory, or inappropriate content</li>
@@ -120,7 +120,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                All content on MyPetWellness, including but not limited to text, graphics, logos, images, and software, is the property of MyPetWellness and is protected by copyright and other intellectual property laws.
+                All content on My Pet Wellness, including but not limited to text, graphics, logos, images, and software, is the property of My Pet Wellness and is protected by copyright and other intellectual property laws.
               </p>
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                 You may not reproduce, distribute, modify, or create derivative works from our content without express written permission.
@@ -135,7 +135,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                In no event shall MyPetWellness or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on MyPetWellness.
+                In no event shall My Pet Wellness or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on My Pet Wellness.
               </p>
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                 Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
@@ -150,7 +150,7 @@ export default function TermsPage() {
             </h2>
             <div className="bg-gray-100 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
               <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                We reserve the right to terminate or suspend your access to MyPetWellness at any time, without notice, for conduct that we believe violates these Terms of Service or is harmful to other users, us, or third parties, or for any other reason.
+                We reserve the right to terminate or suspend your access to My Pet Wellness at any time, without notice, for conduct that we believe violates these Terms of Service or is harmful to other users, us, or third parties, or for any other reason.
               </p>
             </div>
           </section>
