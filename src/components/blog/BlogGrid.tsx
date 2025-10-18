@@ -226,9 +226,14 @@ export function BlogGrid({ category, tag, search, page }: BlogGridProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
-                  <span className="px-2 sm:px-3 py-1 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-xs font-semibold text-gray-700 dark:text-gray-300 rounded-full">
-                    By {post.author.name}
-                  </span>
+                  <div className="flex items-center space-x-1 px-2 sm:px-3 py-1 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-xs font-semibold text-gray-700 dark:text-gray-300 rounded-full">
+                    <span>By {post.author.name}</span>
+                    <div className="flex items-center justify-center w-3 h-3 bg-blue-500 rounded-full">
+                      <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
                   <span className="px-2 sm:px-3 py-1 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-xs font-semibold text-gray-700 dark:text-gray-300 rounded-full">
