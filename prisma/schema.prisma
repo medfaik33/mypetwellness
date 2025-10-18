@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id          String   @id @default(cuid())
+  name        String
+  bio         String?
+  avatar      String?
+  email       String   @unique
+  socialLinks Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  posts       BlogPost[]
+  
+  @@map("authors")
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String
+  coverImage  String?
+  publishedAt DateTime @default(now())
+  readingTime Int      @default(5)
+  tags        String[]
+  category    String
+  featured    Boolean  @default(false)
+  published   Boolean  @default(false)
+  locale      String   @default("en")
+  
+  authorId    String
+  author      Author   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("blog_posts")
+}
+
+model Pet {
+  id          String   @id @default(cuid())
+  name        String
+  species     String
+  breed       String?
+  age         Int?
+  description String?
+  images      String[]
+  owner       String
+  location    String?
+  featured    Boolean  @default(false)
+  approved    Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("pets")
+}
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  subscribed Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("newsletter")
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("contacts")
+}

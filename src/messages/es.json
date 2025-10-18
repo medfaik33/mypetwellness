@@ -1,0 +1,137 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "gallery": "Galería",
+    "contact": "Contacto",
+    "about": "Acerca de"
+  },
+  "home": {
+    "hero": {
+      "title": "Bienvenido a PawVerse",
+      "subtitle": "Tu Blog Compañero de Mascotas Definitivo",
+      "description": "Descubre historias increíbles, consejos de expertos y conéctate con otros amantes de las mascotas de todo el mundo. Desde guías de entrenamiento hasta consejos de salud, tenemos todo lo que tus amigos peludos, emplumados o escamosos necesitan.",
+      "cta": "Explorar Nuestro Blog",
+      "adopt": "Encuentra tu Mascota Perfecta"
+    },
+    "featured": {
+      "title": "Artículos Destacados",
+      "subtitle": "Contenido seleccionado para entusiastas de mascotas"
+    },
+    "trending": {
+      "title": "Temas Trending",
+      "subtitle": "Lo que es popular en la comunidad de mascotas"
+    },
+    "newsletter": {
+      "title": "Mantente Actualizado",
+      "description": "Recibe los últimos consejos para mascotas, historias y actualizaciones de la comunidad en tu bandeja de entrada.",
+      "placeholder": "Ingresa tu dirección de email",
+      "button": "Suscribirse",
+      "success": "¡Gracias por suscribirte!",
+      "error": "Algo salió mal. Por favor intenta de nuevo."
+    }
+  },
+  "blog": {
+    "title": "Blog de Mascotas",
+    "subtitle": "Consejos de expertos e historias conmovedoras",
+    "search": {
+      "placeholder": "Buscar artículos...",
+      "button": "Buscar"
+    },
+    "filters": {
+      "all": "Todas las Categorías",
+      "nutrition": "Nutrición",
+      "training": "Entrenamiento",
+      "health": "Salud",
+      "breeds": "Razas",
+      "behavior": "Comportamiento",
+      "grooming": "Aseo",
+      "travel": "Viajes"
+    },
+    "readMore": "Leer Más",
+    "readingTime": "min de lectura",
+    "publishedOn": "Publicado el",
+    "by": "por",
+    "tags": "Etiquetas",
+    "share": "Compartir",
+    "related": "Artículos Relacionados",
+    "comments": "Comentarios"
+  },
+  "gallery": {
+    "title": "Galería de Mascotas",
+    "subtitle": "Conoce a nuestras adorables mascotas de la comunidad",
+    "upload": "Comparte tu Mascota",
+    "filter": {
+      "all": "Todas las Mascotas",
+      "dogs": "Perros",
+      "cats": "Gatos",
+      "birds": "Aves",
+      "fish": "Peces",
+      "other": "Otros"
+    },
+    "uploadForm": {
+      "title": "Comparte la Foto de tu Mascota",
+      "name": "Nombre de la Mascota",
+      "species": "Especie",
+      "breed": "Raza",
+      "age": "Edad (años)",
+      "description": "Cuéntanos sobre tu mascota",
+      "image": "Subir Foto",
+      "submit": "Enviar",
+      "success": "¡Gracias por compartir tu mascota!",
+      "error": "Algo salió mal. Por favor intenta de nuevo."
+    }
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "subtitle": "Nos encantaría saber de ti",
+    "form": {
+      "name": "Tu Nombre",
+      "email": "Dirección de Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar mensaje. Por favor intenta de nuevo."
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "email": "hola@mypetwellness.site",
+      "phone": "+1 (555) 123-4567",
+      "address": "123 Calle de Mascotas, Ciudad Animal, CA 12345"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "retry": "Intentar de Nuevo",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro",
+    "language": "Idioma"
+  },
+  "footer": {
+    "description": "PawVerse - Tu destino definitivo para todo lo relacionado con mascotas. Conéctate, aprende y comparte con otros amantes de mascotas de todo el mundo.",
+    "links": {
+      "about": "Acerca de Nosotros",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "contact": "Contacto"
+    },
+    "social": "Síguenos",
+    "newsletter": "Newsletter",
+    "copyright": "© 2024 PawVerse. Todos los derechos reservados."
+  }
+}
