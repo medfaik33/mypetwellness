@@ -63,6 +63,7 @@ export interface WordPressAuthor {
     '48': string;
     '96': string;
   };
+  // Note: WordPress API doesn't provide description field for authors
 }
 
 class WordPressAPI {
