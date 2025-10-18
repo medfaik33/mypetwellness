@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 
+// Updated sitemap with correct domain
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://mypetwellness.site'
   const locales = ['en', 'fr', 'es', 'de', 'ar', 'it', 'pt', 'ja', 'zh', 'hi', 'ko', 'ru', 'nl', 'tr', 'pl']
