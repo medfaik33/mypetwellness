@@ -24,18 +24,21 @@ async function getBlogPosts() {
   }
 }
 
-// Updated sitemap with correct domain and blog posts
+// Clean sitemap matching pediamower.com format
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://mypetwellness.site'
-  const locales = ['en', 'fr', 'es', 'de', 'ar', 'it', 'pt', 'ja', 'zh', 'hi', 'ko', 'ru', 'nl', 'tr', 'pl']
 
-  const routes = [
-    '',
-    '/blog',
-    '/contact',
-    '/about',
-    '/privacy',
-    '/terms'
+  // Main pages with /en prefix for proper Google indexing
+  const mainPages = [
+    { route: '/en', priority: 1, changeFreq: 'weekly' }, // Homepage
+    { route: '/en/blog', priority: 0.8, changeFreq: 'weekly' }, // Blog index
+    { route: '/en/about', priority: 0.7, changeFreq: 'monthly' }, // About page
+    { route: '/en/contact', priority: 0.6, changeFreq: 'monthly' }, // Contact page
+  ]
+
+  const legalPages = [
+    { route: '/en/privacy', priority: 0.3, changeFreq: 'yearly' },
+    { route: '/en/terms', priority: 0.3, changeFreq: 'yearly' },
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
@@ -43,36 +46,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch blog posts
   const blogPosts = await getBlogPosts()
 
-  // Generate sitemap for each locale
-  locales.forEach(locale => {
-    // Add static routes
-    routes.forEach(route => {
-      sitemap.push({
-        url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: route === '' ? 'daily' : 'weekly',
-        priority: route === '' ? 1 : 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map(l => [l, `${baseUrl}/${l}${route}`])
-          )
-        }
-      })
+  // 1. Add main pages
+  mainPages.forEach(({ route, priority, changeFreq }) => {
+    sitemap.push({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: changeFreq as 'daily' | 'weekly' | 'monthly' | 'yearly',
+      priority: priority,
     })
+  })
 
-    // Add blog posts
-    blogPosts.forEach((post: { slug: string; modified: string; date: string }) => {
-      sitemap.push({
-        url: `${baseUrl}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.modified),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map(l => [l, `${baseUrl}/${l}/blog/${post.slug}`])
-          )
-        }
-      })
+  // 2. Add blog posts (all with 0.8 priority like pediamower)
+  blogPosts.forEach((post: { slug: string; modified: string; date: string }) => {
+    sitemap.push({
+      url: `${baseUrl}/en/blog/${post.slug}`,
+      lastModified: new Date(post.modified),
+      changeFrequency: 'monthly',
+      priority: 0.8, // Same as pediamower blog posts
+    })
+  })
+
+  // 3. Add legal pages
+  legalPages.forEach(({ route, priority, changeFreq }) => {
+    sitemap.push({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: changeFreq as 'daily' | 'weekly' | 'monthly' | 'yearly',
+      priority: priority,
     })
   })
 
