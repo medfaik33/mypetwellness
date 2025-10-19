@@ -4,7 +4,7 @@ import { MetadataRoute } from 'next'
 async function getBlogPosts() {
   try {
     const response = await fetch('https://gurastech.com/wp-json/wp/v2/posts?per_page=100&_embed', {
-      next: { revalidate: 3600 } // Revalidate every hour
+      next: { revalidate: 60 } // Revalidate every minute
     })
     
     if (!response.ok) {
