@@ -1,7 +1,7 @@
 // Google Analytics utility functions
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
   }
 }
 
@@ -38,7 +38,7 @@ export const event = ({
 };
 
 // Common tracking events for pet blog
-export const trackBlogPostView = (postTitle: string, postSlug: string) => {
+export const trackBlogPostView = (postTitle: string) => {
   event({
     action: 'view_blog_post',
     category: 'Blog',
