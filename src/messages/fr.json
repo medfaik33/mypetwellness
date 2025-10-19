@@ -1,0 +1,148 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "about": "À propos"
+  },
+  "home": {
+    "hero": {
+      "title": "Bienvenue sur My Pet Wellness",
+      "subtitle": "Votre Blog Compagnon Animalier Ultime",
+      "description": "Découvrez des histoires incroyables, des conseils d'experts et connectez-vous avec d'autres amoureux des animaux du monde entier. Des guides d'entraînement aux conseils de santé, nous avons tout ce dont vos amis à fourrure, à plumes ou à écailles ont besoin.",
+      "cta": "Explorer Notre Blog",
+      "adopt": "Trouvez Votre Animal Parfait"
+    },
+    "featured": {
+      "title": "Articles en Vedette",
+      "subtitle": "Contenu sélectionné pour les passionnés d'animaux"
+    },
+    "trending": {
+      "title": "Sujets Tendance",
+      "subtitle": "Ce qui est populaire dans la communauté animalière"
+    },
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Recevez les derniers conseils pour animaux, histoires et mises à jour de la communauté dans votre boîte de réception.",
+      "placeholder": "Entrez votre adresse e-mail",
+      "button": "S'abonner",
+      "success": "Merci de vous être abonné !",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    },
+    "vetExperts": {
+      "title": "Rencontrez Nos Vétérinaires Experts",
+      "subtitle": "Notre équipe de vétérinaires certifiés apporte des décennies d'expérience et de passion pour aider vos animaux à vivre leur meilleure vie.",
+      "cta": "Planifier une Consultation",
+      "ctaDescription": "Prêt à obtenir des conseils d'experts pour votre animal ?"
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "subtitle": "Trouvez des réponses aux questions courantes sur les soins et le bien-être des animaux",
+      "cta": "Vous avez encore des questions ? Contactez nos experts"
+    }
+  },
+  "blog": {
+    "title": "Blog Animalier",
+    "subtitle": "Conseils d'experts et histoires touchantes",
+    "search": {
+      "placeholder": "Rechercher des articles...",
+      "button": "Rechercher"
+    },
+    "filters": {
+      "all": "Toutes les Catégories",
+      "nutrition": "Nutrition",
+      "training": "Éducation",
+      "health": "Santé",
+      "breeds": "Races",
+      "behavior": "Comportement",
+      "grooming": "Toilettage",
+      "travel": "Voyage"
+    },
+    "readMore": "Lire Plus",
+    "readingTime": "min de lecture",
+    "publishedOn": "Publié le",
+    "by": "par",
+    "tags": "Étiquettes",
+    "share": "Partager",
+    "related": "Articles Connexes",
+    "comments": "Commentaires"
+  },
+  "gallery": {
+    "title": "Galerie d'Animaux",
+    "subtitle": "Rencontrez nos adorables animaux de la communauté",
+    "upload": "Partagez Votre Animal",
+    "filter": {
+      "all": "Tous les Animaux",
+      "dogs": "Chiens",
+      "cats": "Chats",
+      "birds": "Oiseaux",
+      "fish": "Poissons",
+      "other": "Autres"
+    },
+    "uploadForm": {
+      "title": "Partagez la Photo de Votre Animal",
+      "name": "Nom de l'Animal",
+      "species": "Espèce",
+      "breed": "Race",
+      "age": "Âge (années)",
+      "description": "Parlez-nous de votre animal",
+      "image": "Télécharger Photo",
+      "submit": "Soumettre",
+      "success": "Merci d'avoir partagé votre animal !",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous aimerions avoir de vos nouvelles",
+    "form": {
+      "name": "Votre Nom",
+      "email": "Adresse E-mail",
+      "subject": "Sujet",
+      "message": "Message",
+      "submit": "Envoyer le Message",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "email": "bonjour@mypetwellness.site",
+      "phone": "+1 (555) 123-4567",
+      "address": "123 Rue des Animaux, Ville Animale, AC 12345"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Quelque chose s'est mal passé",
+    "retry": "Réessayer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "share": "Partager",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair",
+    "language": "Langue"
+  },
+  "footer": {
+    "description": "My Pet Wellness - Votre destination ultime pour tout ce qui concerne les animaux. Connectez-vous, apprenez et partagez avec d'autres amoureux des animaux du monde entier.",
+    "links": {
+      "about": "À Propos",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "contact": "Contact"
+    },
+    "social": "Suivez-Nous",
+    "newsletter": "Newsletter",
+    "copyright": "© 2024 My Pet Wellness. Tous droits réservés."
+  }
+}
