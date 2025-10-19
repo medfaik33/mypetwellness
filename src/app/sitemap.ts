@@ -13,7 +13,7 @@ async function getBlogPosts() {
     }
     
     const posts = await response.json()
-    return posts.map((post: any) => ({
+    return posts.map((post: { slug: string; modified: string; date: string }) => ({
       slug: post.slug,
       modified: post.modified,
       date: post.date
@@ -61,7 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
 
     // Add blog posts
-    blogPosts.forEach(post => {
+    blogPosts.forEach((post: { slug: string; modified: string; date: string }) => {
       sitemap.push({
         url: `${baseUrl}/${locale}/blog/${post.slug}`,
         lastModified: new Date(post.modified),
